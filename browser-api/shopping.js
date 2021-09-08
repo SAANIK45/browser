@@ -1,4 +1,4 @@
-const displayLocalStorageCart = () => {
+/* const displayLocalStorageCart = () => {
     const cart = getCart();
     for (const name in cart) {
         displayProduct(name);
@@ -56,4 +56,34 @@ const placeOrder = () => {
     localStorage.removeItem('cart');
 }
 
-displayLocalStorageCart();
+displayLocalStorageCart(); */
+
+const addItem = () =>{
+    const name = document.getElementById('product-name');
+    const nameValue = name.value;
+    const itemContainer = document.getElementById('products');
+    const li =  document.createElement('li');
+    li.innerText = nameValue;
+    itemContainer.appendChild(li);
+
+    addToCart(nameValue);
+}
+
+const getCart = () =>{
+    const cart = localStorage.getItem('cart');
+    let cartObj ;
+    if(cart){
+        cartObj = JSON.parse(cart);
+    }else{
+        cartObj = {};
+    }
+    return cartObj;
+}
+
+const addToCart = (name) => {
+    const cart = getCart();
+    cart[name] = 1;
+    const cartStringify = JSON.stringify(cart);
+    localStorage.setItem('cart' , cartStringify);
+    
+}
