@@ -58,17 +58,31 @@ const placeOrder = () => {
 
 displayLocalStorageCart(); */
 
+const loadCartLocalStorage = () =>{
+    const cart = getCart();
+    for(const product in cart){
+        displayProduct(product);
+    } 
+}
+
 const addItem = () =>{
     const name = document.getElementById('product-name');
     const nameValue = name.value;
-    const itemContainer = document.getElementById('products');
-    const li =  document.createElement('li');
-    li.innerText = nameValue;
-    itemContainer.appendChild(li);
+    //control name value
+    if(!nameValue){
+        return;
+    }
+
+    displayProduct(nameValue);
 
     addToCart(nameValue);
 }
-
+const displayProduct = name =>{
+    const itemContainer = document.getElementById('products');
+    const li =  document.createElement('li');
+    li.innerText = name;
+    itemContainer.appendChild(li);
+}
 const getCart = () =>{
     const cart = localStorage.getItem('cart');
     let cartObj ;
@@ -87,3 +101,4 @@ const addToCart = (name) => {
     localStorage.setItem('cart' , cartStringify);
     
 }
+loadCartLocalStorage();
