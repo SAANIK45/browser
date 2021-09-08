@@ -76,6 +76,7 @@ const addItem = () =>{
     displayProduct(nameValue);
 
     addToCart(nameValue);
+    name.value = ' ';
 }
 const displayProduct = name =>{
     const itemContainer = document.getElementById('products');
@@ -96,9 +97,18 @@ const getCart = () =>{
 
 const addToCart = (name) => {
     const cart = getCart();
-    cart[name] = 1;
+    if(cart[name]){
+        cart[name] = cart[name] + 1;
+    }else{
+        cart[name] = 1;
+    }
     const cartStringify = JSON.stringify(cart);
     localStorage.setItem('cart' , cartStringify);
     
+}
+
+const placeOrder = () =>{
+    document.getElementById('products').textContent = ' ';
+    localStorage.removeItem('cart');
 }
 loadCartLocalStorage();
