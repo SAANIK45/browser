@@ -23,3 +23,18 @@ const askName = () => {
         console.log(name)
     }
 }
+
+const askTour = () =>{
+    const ques = confirm('are you want to go');
+    console.log(ques);
+    if(ques === true){
+        alert('tk de');
+    }else{
+        alert('ok');
+    }
+}
+
+const takeName = () =>{
+    const name = prompt('whats your name');
+    console.log(name); 
+}
