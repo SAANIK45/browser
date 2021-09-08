@@ -4,6 +4,7 @@ function doSomething() {
 console.log('First: ami sobar age');
 console.log('Second: I am the second person');
 // setTimeout(doSomething, 6000);
+// setTimeout using asynchronous activity
 setTimeout(function () {
     console.log('I am using VS Code');
 }, 5000);
@@ -12,3 +13,4 @@ setTimeout(() => {
 }, 4000);
 console.log('Third: ami 3 number baccha');
 console.log('Fourth: ami ek hali purno korsi');
+

@@ -3,7 +3,7 @@ console.log(222222);
 setTimeout(() => console.log('aaaaaaa'), 5000);
 fetch('https://jsonplaceholder.typicode.com/todos/1')
     .then(response => response.json())
-    .then(json => console.log(json))
+    .then(data => console.log(data))
 console.log(333333);
 console.log(444444);
 console.log(77777);
